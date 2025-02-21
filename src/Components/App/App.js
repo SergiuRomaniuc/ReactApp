@@ -9,13 +9,15 @@ import React from 'react';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state.searchReults = [
-      {name: "Tiny Dancer", artist: "Elton John", album: "Madman Across The Water"},
-      {name: "Little Dancer", artist: " Tim McGraw", album: "Love Story"},
-      {name: "Big Dancer", artist: "Rockabye", album: "Lullaby Rendictions of Elotn John"},
-      {name: "Small Dancer", artist: "The White Raven", album: "Small but Big"},
-      {name: "", artist: "", album: ""}
-    ];
+    this.state = {
+      searchResults: [
+        {id: 1, name: "Tiny Dancer", artist: "Elton John", album: "Madman Across The Water"},
+        {id: 2, name: "Little Dancer", artist: " Tim McGraw", album: "Love Story"},
+        {id: 3, name: "Big Dancer", artist: "Rockabye", album: "Lullaby Rendictions of Elotn John"},
+        {id: 4, name: "Small Dancer", artist: "The White Raven", album: "Small but Big"},
+        {id: 5, name: "", artist: "", album: ""}
+      ]
+    };
   }
 
   render() {
@@ -26,9 +28,7 @@ class App extends React.Component {
             {/*<!-- Add a SearchBar component -->*/}
             <SearchBar />
             <div className="App-playlist">
-              {/*<!-- Add a SearchResults component -->*/}
-              <SearchResults />
-              {/*<!-- Add a Playlist component -->*/}
+              <SearchResults searchResults={this.state.searchResults}/>
               <Playlist />
             </div>
           </div>
